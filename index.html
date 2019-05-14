@@ -1,79 +1,53 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title>Sorosowati Puja</title>
-	<style type="text/css">
-		body{
-			background-color: gray;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		.count{
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			text-align: center;
-			background: #ddd;
-			border: 1px solid #999;
-			padding: 10px;
-			box-shadow: 0 0 5px 3px #ccc;
-		}
-		.info{
-			font-size: 50px;
-		}
-		.im{
-			font-size: 20px;
-		}
-	</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+      text-align: center;
+    font-size: 60px;
+    margin-top: 199px;
+    font-style: italic;
+    color: #801616;
+}
+</style>
+<title>The First Event of Life</title>
 </head>
-<body>
-	<table class="count">
-		
-		<tr class="info">
-			<td colspan="4">Sorosowati Puja Countdown</td>
-		</tr>
-		<tr class="im">
-			<td id="days"></td>
-			<td id="hours"></td>
-			<td id="minutes"></td>
-			<td id="seconds"></td>
-		</tr>
-		<tr>
-			<td>Days</td>
-			<td>Hours</td>
-			<td>Minutes</td>
-			<td>Seconds</td>
-		</tr>
-	</table>
-	<script type="text/javascript">
-		function countdown(){
-			var now = new Date();
-			var eventDate = new Date("Jan 29 2020");
-			var currentTime = now.getTime();
-			var eventTime = eventDate.getTime();
-			var renTime = eventTime - currentTime;
+<body id="body">
 
-			var s = Math.floor(renTime/1000);
-			var m = Math.floor(s/60);
-			var h = Math.floor(m/60);
-			var d = Math.floor(h/24);
+<p id="demo"></p>
 
-			
-
-			h %= 24;
-			m %= 60;
-			s %= 60;
-
-			document.getElementById("days").textContent = d;
-			document.getElementById("days").innerText = d;
-			document.getElementById("hours").textContent = h;
-			document.getElementById("minutes").textContent = m;
-			document.getElementById("seconds").textContent = s;
-			
-		}
-		countdown();
-	</script>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("January 29, 2020, 00:00:01").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + " Days " + hours + " Hours "
+  + minutes + " Minutes " + seconds + " Seconds "+"<br>"+"Please wait and see";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Happy Sorosuwati Puja";
+   
+     var changeBG = document.getElementById("body");
+     changeBG.style.cssText = "background-image: url(b1.gif)";
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
